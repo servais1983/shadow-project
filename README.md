@@ -1,3 +1,6 @@
+![image](https://github.com/user-attachments/assets/75084d53-618f-42a5-8d07-2e43f0be4e0c)
+
+
 # 🛡️ Shadow – Gardien Numérique
 
 Plateforme complète de surveillance, notification et suppression de données personnelles en ligne.
