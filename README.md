@@ -15,6 +15,9 @@ Interface en ligne de commande pour Kali Linux permettant la surveillance, notif
 * **Générateur d'identités temporaires** : Création de profils temporaires pour protéger votre identité
 * **Nettoyage de métadonnées** : Suppression des informations sensibles dans vos fichiers
 * **Analyse de réputation** : Évaluation de votre image en ligne avec recommandations
+* **Moniteur de Dark Web** : Surveillance des forums et marketplaces du dark web pour détecter vos informations
+* **Générateur de mots de passe sécurisés** : Création de mots de passe forts avec évaluation de sécurité
+* **Analyse de vulnérabilité personnelle** : Évaluation de votre exposition aux risques de sécurité
 
 ## 🚀 Installation et utilisation
 
@@ -104,6 +107,37 @@ Supprime les informations sensibles (géolocalisation, appareil, etc.) de vos fi
 ./cli/shadow.py reputation --name "John Doe"    # Analyse pour une personne
 ./cli/shadow.py reputation --company "Acme Inc"    # Analyse pour une entreprise
 ./cli/shadow.py reputation --website "example.com"    # Analyse pour un site web
+```
+
+### 8. Moniteur de Dark Web
+
+Surveille le dark web pour détecter si vos informations personnelles sont exposées ou vendues.
+
+```bash
+./cli/shadow.py darkweb --email john@example.com    # Surveille une adresse email
+./cli/shadow.py darkweb --username johndoe    # Surveille un nom d'utilisateur
+./cli/shadow.py darkweb --phone "+33612345678"    # Surveille un numéro de téléphone
+```
+
+### 9. Générateur de mots de passe sécurisés
+
+Crée des mots de passe forts avec évaluation de leur niveau de sécurité.
+
+```bash
+./cli/shadow.py password --length 16    # Génère un mot de passe de 16 caractères
+./cli/shadow.py password --count 5    # Génère 5 mots de passe
+./cli/shadow.py password --no-special    # Sans caractères spéciaux
+./cli/shadow.py password --no-uppercase --no-numbers    # Personnalisation avancée
+```
+
+### 10. Analyse de vulnérabilité personnelle
+
+Évalue votre exposition aux risques de sécurité et fournit des recommandations personnalisées.
+
+```bash
+./cli/shadow.py vulnerability --email john@example.com    # Analyse par email
+./cli/shadow.py vulnerability --username johndoe    # Analyse par nom d'utilisateur
+./cli/shadow.py vulnerability --profile profile.json    # Analyse à partir d'un profil complet
 ```
 
 ## 📋 Prérequis
