@@ -12,7 +12,6 @@ Plateforme complète de surveillance, notification et suppression de données pe
 * **Dashboard interactif** : Interface utilisateur intuitive pour suivre vos alertes
 * **Application mobile** : Alertes et notifications en temps réel
 * **Interface CLI pour Kali Linux** : Contrôle complet via ligne de commande pour les analystes en cybersécurité
-* **Scanner de vulnérabilités intégré** : Analyse des cibles avec intégration native aux outils Kali Linux
 
 ## 🚀 Lancer Localement
 
@@ -31,7 +30,7 @@ Accès :
 ```bash
 # Installation des dépendances requises
 sudo apt-get update
-sudo apt-get install -y docker.io build-essential python3-dev python3-pip python3-venv nmap
+sudo apt-get install -y docker.io build-essential python3-dev python3-pip python3-venv
 
 # Installation de Docker Compose V2
 sudo curl -L "https://github.com/docker/compose/releases/download/v2.24.6/docker-compose-linux-x86_64" -o /usr/local/bin/docker-compose
@@ -52,7 +51,6 @@ pip install requests docker
 ./cli/shadow.py deploy    # Déployer l'application
 ./cli/shadow.py status    # Vérifier l'état des services
 ./cli/shadow.py stop      # Arrêter les services
-./cli/shadow.py scan      # Scanner les vulnérabilités d'une cible
 ./cli/shadow.py facial    # Tester la reconnaissance faciale
 ```
 
@@ -113,21 +111,7 @@ L'interface CLI de Shadow pour Kali Linux offre plusieurs fonctionnalités spéc
 ./cli/shadow.py stop      # Arrête tous les services
 ```
 
-### 2. Scanner de vulnérabilités
-
-Fonctionnalité innovante qui utilise les outils natifs de Kali Linux pour analyser les vulnérabilités d'une cible :
-
-```bash
-./cli/shadow.py scan example.com    # Lance un scan de vulnérabilités sur example.com
-```
-
-Le scanner effectue :
-- Détection de ports ouverts
-- Identification de services vulnérables
-- Analyse des failles de sécurité connues
-- Génération d'un rapport détaillé
-
-### 3. Reconnaissance faciale optimisée
+### 2. Reconnaissance faciale optimisée
 
 Version optimisée pour Kali Linux de l'algorithme de reconnaissance faciale :
 
@@ -144,7 +128,6 @@ Améliorations spécifiques :
 
 * Docker et Docker Compose V2
 * Python 3.10+ avec venv
-* Nmap (pour la fonctionnalité de scan)
 * Kali Linux (pour l'interface CLI optimisée)
 
 ## 🧪 Tests

@@ -148,40 +148,6 @@ class ShadowCLI:
             print(f"{Colors.FAIL}[✗] Impossible de vérifier l'état des services{Colors.ENDC}")
             return False
     
-    def scan_vulnerabilities(self, target):
-        """Nouvelle fonctionnalité: Scanner de vulnérabilités"""
-        print(f"{Colors.HEADER}[+] Lancement du scan de vulnérabilités sur {target}...{Colors.ENDC}")
-        print(f"{Colors.BLUE}[*] Cette fonctionnalité utilise les outils natifs de Kali Linux{Colors.ENDC}")
-        
-        # Vérifier si nmap est installé
-        try:
-            subprocess.run(["which", "nmap"], check=True, stdout=subprocess.PIPE)
-        except subprocess.CalledProcessError:
-            print(f"{Colors.FAIL}[✗] nmap n'est pas installé{Colors.ENDC}")
-            print(f"{Colors.WARNING}    Installez nmap avec: sudo apt update && sudo apt install -y nmap{Colors.ENDC}")
-            return False
-        
-        # Exécuter un scan nmap basique
-        try:
-            print(f"{Colors.BLUE}[*] Exécution d'un scan nmap...{Colors.ENDC}")
-            scan_result = subprocess.run(["nmap", "-sV", "-p-", "--script=vuln", target], 
-                                        check=True, stdout=subprocess.PIPE, text=True)
-            
-            # Sauvegarder les résultats
-            report_path = os.path.join(self.project_root, "scan_results.txt")
-            with open(report_path, "w") as f:
-                f.write(scan_result.stdout)
-            
-            print(f"{Colors.GREEN}[✓] Scan terminé. Résultats sauvegardés dans {report_path}{Colors.ENDC}")
-            print("\nAperçu des résultats:")
-            print("-" * 60)
-            print(scan_result.stdout[:500] + "..." if len(scan_result.stdout) > 500 else scan_result.stdout)
-            print("-" * 60)
-            return True
-        except subprocess.CalledProcessError:
-            print(f"{Colors.FAIL}[✗] Échec du scan{Colors.ENDC}")
-            return False
-    
     def facial_recognition_test(self):
         """Test de la reconnaissance faciale améliorée"""
         print(f"{Colors.HEADER}[+] Test de la reconnaissance faciale...{Colors.ENDC}")
@@ -227,10 +193,6 @@ class ShadowCLI:
         # Commande: status
         status_parser = subparsers.add_parser("status", help="Vérifier l'état des services")
         
-        # Commande: scan (nouvelle fonctionnalité)
-        scan_parser = subparsers.add_parser("scan", help="Scanner les vulnérabilités d'une cible")
-        scan_parser.add_argument("target", help="Cible à scanner (IP ou nom de domaine)")
-        
         # Commande: facial (nouvelle fonctionnalité)
         facial_parser = subparsers.add_parser("facial", help="Tester la reconnaissance faciale")
         
@@ -248,8 +210,6 @@ class ShadowCLI:
             self.stop()
         elif args.command == "status":
             self.status()
-        elif args.command == "scan":
-            self.scan_vulnerabilities(args.target)
         elif args.command == "facial":
             self.facial_recognition_test()
         else:
