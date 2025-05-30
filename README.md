@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/75084d53-618f-42a5-8d07-2e43f0be4e0c)
+![image](shadow.jpg)
 
 # 🛡️ Shadow – Gardien Numérique
 
