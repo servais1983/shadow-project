@@ -1,4 +1,4 @@
-![image](shadow.jpg)
+![image](shadow.png)
 
 # 🛡️ Shadow – Gardien Numérique
 
